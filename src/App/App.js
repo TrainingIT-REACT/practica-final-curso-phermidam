@@ -1,10 +1,18 @@
 import React, { Component, Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Css
 import './App.css';
 
 import Loader from "./common/Loader";
 import ErrorBoundary from "./ErrorBoundary";
+
+//Components
+import Home from "./pages/home/Home";
+import Album from "./pages/album/Album";
+import History from "./pages/history/History";
+import Player from "./pages/player/Player";
+import User from "./pages/user/User";
 
 const Menu = lazy(() => import('./common/Menu'));
 
@@ -36,10 +44,16 @@ class App extends Component {
     return (
       <ErrorBoundary>
         <Suspense fallback={<Loader />}>
-          <Menu />
-          <div className="content">
-            El contenido de la app va aquí
-          </div>
+            <Router>
+              <Menu />
+              <div className="content">
+                <Route path="/" exact component={Home} />
+                <Route path="/album/:id" component={Album} />
+                <Route path="/history" component={History} />
+                <Route path="/player/:id" component={Player} />
+                <Route path="/user/:id" component={User} />
+              </div>
+            </Router>
         </Suspense>
       </ErrorBoundary>
     );
