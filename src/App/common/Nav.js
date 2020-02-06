@@ -13,7 +13,6 @@ class Nav extends React.Component {
         this.el.classList.add("hidden");
     }
 
-
     componentDidMount() {
         navNode.appendChild(this.el);
     }

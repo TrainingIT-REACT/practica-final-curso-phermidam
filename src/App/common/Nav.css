@@ -14,7 +14,7 @@
 
 #nav .navMenu{
     position: relative;
-    width: 320px;
+    width: 280px;
     height: 100%;
     z-index: 10;
     background: #333;
@@ -37,4 +37,46 @@
     color: #FFF;
     cursor: pointer;
     z-index: 100;
+}
+
+#nav .navMenu .content .user .wrapper .image{
+    padding: 60px 10px 10px;
+    text-align: center;
+}
+
+#nav .navMenu .content .user .wrapper .name{
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#nav .navMenu .content .user .wrapper .image img{
+    max-height: 80px;
+    width: auto;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+#nav .navMenu .content .links-menu{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 60px;
+}
+
+#nav .navMenu .content .links-menu a{
+    display: block;
+    font-size: 23px;
+    font-weight: 700;
+    color: #888;
+    text-decoration: none;
+    padding: 15px 0;
+    /*margin: 0 auto 25px;
+    width: fit-content;*/
+}
+
+#nav .navMenu .content .links-menu a:hover{
+    background-color: #888;
+    color: #333;
 }
