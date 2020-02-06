@@ -26,6 +26,7 @@ class Menu extends React.Component{
     }
 
     render(){
+        if(!this.props.visible) return <Nav open={false}></Nav>;
         return <nav>
                 <div className="menu">
                     <MenuIcon onClick={this.toggleNav}/>
