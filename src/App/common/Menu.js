@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import './Menu.css';
 
 import Nav from './Nav';
@@ -11,7 +13,7 @@ import {Link} from "react-router-dom";
 class Menu extends React.Component{
     constructor(props){
         super(props);
-        
+
         this.toggleNav = this.toggleNav.bind(this);
 
         this.state = {
@@ -39,7 +41,7 @@ class Menu extends React.Component{
                                         <div className="image">
                                             <img src={userImageSrc} alt="Error al cargar la imagen" />
                                         </div>
-                                        <div className="name">Nombre Apellido Apellido</div>
+                                        <div className="name">{this.props.user.user.username}</div>
                                     </Link>
                                 </div>
                                 <div className="links-menu">
@@ -58,11 +60,20 @@ class Menu extends React.Component{
                         <div className="image">
                             <img src={userImageSrc} alt="Error al cargar la imagen" />
                         </div>
-                        <div className="name">Nombre Apellido Apellido</div>
+                        <div className="name">{this.props.user.user.username}</div>
                     </Link>
                 </div>
             </nav>;
     }
 }
 
-export default Menu;
+const mapStateToProps = (state) => {
+    return {
+        user: state
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    null,
+  )(Menu);

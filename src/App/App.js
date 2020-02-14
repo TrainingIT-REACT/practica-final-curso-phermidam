@@ -1,5 +1,6 @@
 import React, { Component, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
 // Css
 import './App.css';
@@ -18,12 +19,14 @@ import User from "./pages/user/User";
 
 import UserContext from './contexts/UserContext';
 
+import { login } from './store/actions/user';
+
 const Menu = lazy(() => import('./common/Menu'));
 
 class App extends Component {
   constructor(props) {
     super(props);
-
+    
     this.updateUser = this.updateUser.bind(this);
 
     this.state = {
@@ -48,7 +51,8 @@ class App extends Component {
     }
   }*/
 
-  updateUser(signedIn) {
+  updateUser(signedIn, username) {
+    this.props.login(username);
     this.setState(() => ({ signedIn }));
   }
 
@@ -75,4 +79,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  login: (content) => dispatch(login(content)),
+});
+
+export default connect(
+  () => ({}),
+  mapDispatchToProps,
+)(App);

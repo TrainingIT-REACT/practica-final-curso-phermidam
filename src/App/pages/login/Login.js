@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 
 import { Route, Redirect } from 'react-router-dom';
 
@@ -7,6 +7,8 @@ import './Login.css';
 import UserContext from "../../contexts/UserContext";
 
 class Login extends React.Component{
+    userInput = createRef();
+
     render(){
         return <UserContext.Consumer>
             {({ signedIn, updateUser }) => {
@@ -18,14 +20,14 @@ class Login extends React.Component{
                             <div className="contentForm">
                                 <div className="form">
                                     <div className="inputForm">
-                                        <label>E-mail</label>
-                                        <input type="email" name="email" placeholder="Introduce tu email" />
+                                        <label>Usuario</label>
+                                        <input type="text" name="user" ref={this.userInput} placeholder="Introduce tu usuario" />
                                     </div>
                                     <div className="inputForm">
                                         <label>Contraseña</label>
                                         <input type="password" name="password" placeholder="Introduce tu contraseña" />
                                     </div>
-                                    <button onClick={() => updateUser(true)}>Entrar</button>
+                                    <button onClick={() => updateUser(true, this.userInput.current.value)}>Entrar</button>
                                 </div>
                             </div>
                         </div>

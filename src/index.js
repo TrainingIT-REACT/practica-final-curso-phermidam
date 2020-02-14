@@ -4,9 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// Store
+import store from './App/store/store';
+
+import { Provider } from "react-redux";
+
 ReactDOM.render(
   <main>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </main>,
 document.getElementById('root'));
 
