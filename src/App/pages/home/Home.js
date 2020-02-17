@@ -1,9 +1,36 @@
 import React from "react";
+import { connect } from "react-redux";
+
+import Loader from "../../common/Loader";
+import { getAlbums } from '../../store/actions/albums';
+import Albums from './Albums';
 
 class Home extends React.Component{
+    componentDidMount() {
+        this.props.getAlbums();
+    }
+
     render(){
-        return <div>Estoy en /home</div>
+        const { isLoading, albums, error } = this.props;
+        if (isLoading) {
+            return <Loader />
+        } else if (error) {
+            return <p>Error al obtener los datos</p>
+        } else if (albums.albums.length>0) {
+            return <Albums data={albums.albums} />;
+        } else{
+            return <Loader />
+        }
     }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({ ...state });
+
+const mapDispatchToProps = (dispatch) => ({
+    getAlbums: () => dispatch(getAlbums()),
+});
+  
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Home);

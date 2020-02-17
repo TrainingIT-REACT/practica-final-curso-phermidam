@@ -17,8 +17,10 @@ import History from "./pages/history/History";
 import Player from "./pages/player/Player";
 import User from "./pages/user/User";
 
+//Contexts
 import UserContext from './contexts/UserContext';
 
+//Actions
 import { login } from './store/actions/user';
 
 const Menu = lazy(() => import('./common/Menu'));
@@ -80,7 +82,7 @@ class App extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  login: (content) => dispatch(login(content)),
+  login: (content) => dispatch(login(content))
 });
 
 export default connect(
