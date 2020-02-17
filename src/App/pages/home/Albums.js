@@ -1,17 +1,19 @@
 import React from "react";
 
+import {Link} from "react-router-dom";
+
 // Css
 import './Albums.css';
 
 class Albums extends React.Component{
     render(){
         let items = this.props.data.map((album, i) => 
-            <div className="album" key={i}>
+            <Link to={'/album/'+album.id} className="album" key={album.id}>
                 <div className="img">
                     <img src={album.cover} alt="Imagen del álbum" title="Imagen del álbum" />
                 </div>
                 <div className="title">{album.name}<br/><i>{album.artist}</i></div>
-            </div>
+            </Link>
         );
 
         return <div className="content">

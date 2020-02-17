@@ -1,4 +1,6 @@
 import { getAlbums } from "../actions/albums";
+import { getAlbumById } from "../actions/albums";
+import { getSongsByAlbum } from "../actions/albums";
 
 const initialState = {
     isLoading: false,
@@ -8,7 +10,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
-        case String(getAlbums.pending): return {
+        case String(getAlbums.pending) | String(getAlbumById.pending) | String(getSongsByAlbum.pending) : return {
             ...state,
             isLoading: true,
             error: false
@@ -19,7 +21,19 @@ const reducer = (state = initialState, action) => {
             error: false,
             albums: action.payload
         }
-        case String(getAlbums.rejected): return {
+        case String(getAlbumById.fulfilled): return {
+            ...state,
+            isLoading: false,
+            error: false,
+            album: action.payload
+        }
+        case String(getSongsByAlbum.fulfilled): return {
+            ...state,
+            isLoading: false,
+            error: false,
+            songs: action.payload
+        }
+        case String(getAlbums.rejected) | String(getAlbumById.rejected) | String(getSongsByAlbum.rejected) : return {
             ...state,
             isLoading: false,
             error: true

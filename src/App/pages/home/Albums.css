@@ -18,6 +18,11 @@
     overflow: hidden;
 }
 
+.content .albums .album .title{
+    color: #fff;
+    text-decoration: none;
+}
+
 .content .albums .album .img img{
     width: 100%;
     transition: transform 0.5s;
