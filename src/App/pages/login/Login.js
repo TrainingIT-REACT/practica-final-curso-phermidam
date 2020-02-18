@@ -20,12 +20,12 @@ class Login extends React.Component{
                             <div className="contentForm">
                                 <div className="form">
                                     <div className="inputForm">
-                                        <label>Usuario</label>
-                                        <input type="text" name="user" ref={this.userInput} placeholder="Introduce tu usuario" />
+                                        <label htmlFor="user">Usuario</label>
+                                        <input type="text" id="user" name="user" ref={this.userInput} placeholder="Introduce tu usuario" />
                                     </div>
                                     <div className="inputForm">
-                                        <label>Contraseña</label>
-                                        <input type="password" name="password" placeholder="Introduce tu contraseña" />
+                                        <label htmlFor="password">Contraseña</label>
+                                        <input type="password" id="password" name="password" placeholder="Introduce tu contraseña" />
                                     </div>
                                     <button onClick={() => updateUser(true, this.userInput.current.value)}>Entrar</button>
                                 </div>
