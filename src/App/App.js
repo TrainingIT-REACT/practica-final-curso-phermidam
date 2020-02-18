@@ -34,24 +34,8 @@ class App extends Component {
     this.state = {
       signedIn: false,
       updateUser: this.updateUser,
-      /*loading: true,
-      albums: []*/
     }
   }
-
-  /*async componentDidMount() {
-    try {
-      const res = await fetch('/albums');
-      const json = await res.json();
-      this.setState((prevState) => ({
-        ...prevState,
-        loading: false,
-        albums: json
-      }));
-    } catch(err) {
-      console.error("Error accediendo al servidor", err);
-    }
-  }*/
 
   updateUser(signedIn, username) {
     this.props.login(username);
@@ -81,11 +65,13 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({ ...state });
+
 const mapDispatchToProps = (dispatch) => ({
   login: (content) => dispatch(login(content))
 });
 
 export default connect(
-  () => ({}),
+  mapStateToProps,
   mapDispatchToProps,
 )(App);

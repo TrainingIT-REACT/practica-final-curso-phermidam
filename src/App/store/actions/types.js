@@ -1,6 +1,7 @@
 const actions = [
     "LOGIN",
-    "LOGOUT"
+    "LOGOUT",
+    "ADD_TO_HISTORY"
 ];
 
 const actionTypes = {};

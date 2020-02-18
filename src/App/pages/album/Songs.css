@@ -1,0 +1,24 @@
+.songs .song{
+    display: table;
+    border: 1px solid #c4c4c4;
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.songs .song .name, .songs .song .time, .songs .song .play{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.songs .song .name{
+    width: 90%;
+}
+
+.songs .song .time{
+    width: 10%;
+}
+
+.songs .song .play{
+    padding-top: 2px;
+    cursor: pointer;
+}

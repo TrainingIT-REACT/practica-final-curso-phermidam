@@ -8,3 +8,8 @@ export const login = (username) => ({
 export const logout = () => ({
   type: types.LOGOUT
 });
+
+export const addSongToHistory = (song) => ({
+  type: types.ADD_TO_HISTORY,
+  song
+});

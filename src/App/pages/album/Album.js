@@ -36,7 +36,7 @@ class Album extends React.Component{
                         <div className="songs">Nº canciones: {songs.length}</div>
                     </div>
                 </div>
-                <Songs data={songs}/>
+                <Songs data={songs} album={album.name}/>
             </div>
         } else{
             return <Loader />

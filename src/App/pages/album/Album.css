@@ -17,41 +17,16 @@
     padding-left: 50px;
 }
 
-.album .songs .song{
-    display: table;
-    border: 1px solid #c4c4c4;
-    width: 100%;
-    padding: 5px 10px;
-}
-
-.album .songs .song .name, .album .songs .song .time, .album .songs .song .play{
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.album .songs .song .name{
-    width: 90%;
-}
-
-.album .songs .song .time{
-    width: 10%;
-}
-
-.album .songs .song .play{
-    padding-top: 2px;
-    cursor: pointer;
-}
-
 @media(max-width: 760px){
-    .album .header{
+    .header{
         margin: inherit auto;
     }
 
-    .album .header .image, .album .header .data{
+    .header .image, .header .data{
         display: block;
     }
 
-    .album .header .image img{
+    .header .image img{
         width: 100%;
         height: auto;
         max-height: none;
