@@ -5,7 +5,6 @@ import Songs from "../album/Songs";
 
 class History extends React.Component{
     render(){
-        console.log(this.props);
         return <div>
             <h2>Canciones escuchadas</h2>
             <div className="songs">

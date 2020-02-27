@@ -5,8 +5,10 @@ import { connect } from "react-redux";
 // Css
 import './App.css';
 
+//Common Components
 import Loader from "./common/Loader";
 import ErrorBoundary from "./ErrorBoundary";
+import Player from "./common/player/Player";
 
 //Components
 import PrivateRoute from "./common/PrivateRoute";
@@ -14,7 +16,6 @@ import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
 import Album from "./pages/album/Album";
 import History from "./pages/history/History";
-import Player from "./pages/player/Player";
 import User from "./pages/user/User";
 
 //Contexts
@@ -59,6 +60,7 @@ class App extends Component {
                 </div>
               </UserContext.Provider>
             </Router>
+            <Player />
         </Suspense>
       </ErrorBoundary>
     );
