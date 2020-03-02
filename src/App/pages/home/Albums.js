@@ -16,7 +16,7 @@ class Albums extends React.Component{
             </Link>
         );
 
-        return <div className="content">
+        return <div id="albums" className="content">
             <h2>Álbumes más escuchados</h2>
             <div className="albums">{items}</div>
         </div>;

@@ -1,14 +1,18 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import History from "../History";
 
-describe(History, () => {
+describe(History.WrappedComponent, () => {
     describe("Render", () => {
         let wrapper;
 
+        let user = {
+            "history": []
+        }
+
         beforeEach(() => {
-            wrapper = render(<History />);
+            wrapper = shallow(<History />);
         });
 
         it('should add the HTML elements', () => {
