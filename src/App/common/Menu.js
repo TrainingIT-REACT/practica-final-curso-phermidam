@@ -39,7 +39,7 @@ class Menu extends React.Component{
                                 <div className="user">
                                     <Link className="wrapper" to="/user/1">
                                         <div className="image">
-                                            <img src={userImageSrc} alt="Error al cargar la imagen" />
+                                            <img src={"/"+userImageSrc} alt="Error al cargar la imagen" />
                                         </div>
                                         <div className="name">{this.props.user.user.username}</div>
                                     </Link>
