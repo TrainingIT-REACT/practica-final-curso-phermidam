@@ -28,7 +28,7 @@ class Album extends React.Component{
             return <div className="album">
                 <div className="header">
                     <div className="image">
-                        <img src={album.cover} alt="Imagen del álbum" title="Imagen del álbum" />
+                        <img src={"http://localhost:3001"+album.cover} alt="Imagen del álbum" title="Imagen del álbum" />
                     </div>
                     <div className="data">
                         <h2 className="title">{album.name}</h2>

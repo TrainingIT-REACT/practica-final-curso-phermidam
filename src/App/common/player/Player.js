@@ -11,7 +11,7 @@ class Player extends React.Component{
             return <div id="player">
                 <div className="title">{song.album} - {song.name}</div>
                 <div className="playerAudio">
-                    <audio src={song.audio} controls autoPlay/>
+                    <audio src={"http://localhost:3001"+song.audio} controls autoPlay/>
                 </div>
             </div>
         }

@@ -4,6 +4,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const config= {
     entry: {
         main:'./src/index.js',
+        //sw: './src/sw.js',
         vendor: ['react', 'react-dom', 'react-router-dom']
     },
     output: {
@@ -15,16 +16,7 @@ const config= {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                loader: "babel-loader",
-                options: {
-                    presets: [
-                        '@babel/preset-env', {
-                            plugins: [
-                                '@babel/plugin-proposal-class-properties'
-                            ]
-                        }
-                    ]
-                }
+                loader: "babel-loader"
             },
             {
                 test: /\.css$/,
@@ -46,14 +38,14 @@ const config= {
         contentBase: './build',
         historyApiFallback: true,
         proxy: {
-            '/api': 'http://localhost:3000'
+            '/api': 'http://localhost:3001'
         },
     },
     devtool: 'source-map',
     optimization: {
         runtimeChunk: 'single',
         usedExports: true,
-        sideEffects: true,
+        sideEffects: false,
         splitChunks: {
             cacheGroups: {
                 vendor: {

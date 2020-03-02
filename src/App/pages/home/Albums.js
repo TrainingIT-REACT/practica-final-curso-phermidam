@@ -10,7 +10,7 @@ class Albums extends React.Component{
         let items = this.props.data.map((album, i) => 
             <Link to={'/album/'+album.id} className="album" key={album.id}>
                 <div className="img">
-                    <img src={album.cover} alt="Imagen del álbum" title="Imagen del álbum" />
+                    <img src={"http://localhost:3001"+album.cover} alt="Imagen del álbum" title="Imagen del álbum" />
                 </div>
                 <div className="title">{album.name}<br/><i>{album.artist}</i></div>
             </Link>
