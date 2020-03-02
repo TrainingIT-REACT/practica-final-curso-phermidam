@@ -9,6 +9,9 @@ import store from './App/store/store';
 
 import { Provider } from "react-redux";
 
+//Polyfills
+import '@babel/polyfill';
+
 ReactDOM.render(
   <main>
     <Provider store={store}>
