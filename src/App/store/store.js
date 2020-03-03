@@ -4,13 +4,18 @@ import promise from "redux-promise-middleware";
 //Reducers
 import user from './reducers/userReducer';
 import albums from './reducers/albumsReducer';
+import log from './reducers/logReducer';
+
+//Middlewares
+import logger from './middlewares/logger';
 
 const store = createStore( 
     combineReducers({
         user,
-        albums
+        albums,
+        log
     }),
-    applyMiddleware(promise) 
+    applyMiddleware(logger, promise) 
 );
 
 export default store;
