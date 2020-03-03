@@ -22,10 +22,10 @@ describe(Home.WrappedComponent, () => {
             expect(fetchMock).toBeCalledWith(
                 'http://localhost:3001/albums',
                 {
-                  method: 'GET',
-                  headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                  }
+                    method: 'GET',
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
                 }
             );
 

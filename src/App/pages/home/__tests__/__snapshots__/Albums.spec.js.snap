@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[` Render should add the HTML elements 1`] = `
+exports[`Albums Render should add the HTML elements 1`] = `
 <div
   className="content"
   id="albums"

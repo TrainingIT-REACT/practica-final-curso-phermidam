@@ -1,5 +1,4 @@
 describe('Init', () => {
-    // Navegamos a la página
     beforeEach(async () => {
       await page.goto('http://localhost:8080');
     });

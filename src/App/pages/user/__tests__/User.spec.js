@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import User from "../User";
 
-describe(User.WrappedComponent, () => {
+describe(User, () => {
     describe("Render", () => {
         let wrapper;
 

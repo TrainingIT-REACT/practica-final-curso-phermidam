@@ -27,7 +27,7 @@
     "eject": "react-scripts eject",
     "run-dev": "npx webpack --mode=development && npx webpack-dev-server --mode=development",
     "run-pro": "npx webpack --mode=production && npx webpack-dev-server --mode=production",
-    "serve": "npx webpack-dev-server --open",
+    "serve": "npx webpack-dev-server",
     "test:integration": "jest -c integration/jest.config.js"
   },
   "eslintConfig": {

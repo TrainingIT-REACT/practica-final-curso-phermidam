@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import Albums from "../Albums";
 
-describe(Albums.WrappedComponent, () => {
+describe(Albums, () => {
     describe("Render", () => {
         let wrapper;
 
