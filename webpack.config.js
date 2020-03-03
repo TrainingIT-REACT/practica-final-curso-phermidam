@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 const config= {
     entry: {
@@ -23,15 +25,35 @@ const config= {
                 use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|jpe?g|gif|ico)$/i,
                 use: ['file-loader']
-            },
+            }
         ]
     },
     plugins: [
         new HtmlWebPackPlugin({
             template: "./public/index.html",
             filename: "./index.html"
+        }),
+        new SWPrecacheWebpackPlugin(
+            {
+              cacheId: 'my-cache',
+              dontCacheBustUrlsMatching: /\.\w{8}\./,
+              filename: 'sw.js',
+              minify: true,
+              navigateFallback: './index.html',
+              staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/]
+            }
+        ),
+        new WebpackPwaManifest({
+            name: 'Mi primera app con ReactJS: Reactify',
+            short_name: 'Reactify',
+            description: 'Mi primera app con ReactJS: Reactify',
+            background_color: '#333333',
+            theme_color: '#000000',
+            'theme-color': '#000000',
+            start_url: '/',
+            icons: []
         })
     ],
     devServer: {
