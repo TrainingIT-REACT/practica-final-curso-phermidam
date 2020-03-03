@@ -1,3 +1,8 @@
+a.album{
+    text-decoration: none;
+    color: inherit;
+}
+
 .album .header{
     display: table;
     margin: 50px 0;

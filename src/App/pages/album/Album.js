@@ -19,6 +19,13 @@ class Album extends React.Component{
     render(){
         let songs=this.props.albums.songs;
         let album=this.props.albums.album;
+        let duration=0;
+        
+        if(songs){
+            songs.map((song, i)=>{
+                duration+=song.seconds;
+            });
+        }
 
         if (this.props.albums.isLoading) {
             return <Loader />
@@ -33,7 +40,8 @@ class Album extends React.Component{
                     <div className="data">
                         <h2 className="title">{album.name}</h2>
                         <h3 className="author">De <i>{album.artist}</i></h3>
-                        <div className="songs">Nº canciones: {songs.length}</div>
+                        <div className="songs"><strong>Nº canciones</strong> {songs.length}</div>
+                        <div className="duration"><strong>Duración</strong> {Math.floor(duration/60)}:{duration%60}</div>
                     </div>
                 </div>
                 <Songs data={songs} album={album.name}/>
