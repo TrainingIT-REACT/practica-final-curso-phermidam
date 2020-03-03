@@ -12,11 +12,12 @@ describe(History.WrappedComponent, () => {
         }
 
         beforeEach(() => {
-            wrapper = shallow(<History />);
+            wrapper = shallow(<History.WrappedComponent user={user} />);
         });
 
         it('should add the HTML elements', () => {
             expect(wrapper.is('#history')).toBeTruthy();
+            expect(wrapper.find('#history h2').text()).toBe("Canciones escuchadas")
         });
     });
 });
