@@ -30,3 +30,9 @@ self.addEventListener('fetch', function(event) {
 self.addEventListener('activate', function(e) {
   	console.log('activado!');
 });
+
+self.addEventListener('message', (e) => {
+	if (e.data.action === 'skipWaiting') {
+		self.skipWaiting();
+	}
+});
