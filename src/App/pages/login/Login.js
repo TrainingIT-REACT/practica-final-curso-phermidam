@@ -17,6 +17,7 @@ class Login extends React.Component{
                         <Redirect to="/" />
                     ) : (
                         <div id="login">
+                            <h1>REACTIFY</h1>
                             <div className="contentForm">
                                 <div className="form">
                                     <div className="inputForm">
