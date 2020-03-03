@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` Render should add the HTML elements 1`] = `
+<div
+  className="content"
+  id="albums"
+>
+  <h2>
+    Álbumes más escuchados
+  </h2>
+  <div
+    className="albums"
+  >
+    <Link
+      className="album"
+      key="1"
+      to="/album/1"
+    >
+      <div
+        className="img"
+      >
+        <img
+          alt="Imagen del álbum"
+          src="http://localhost:3001/images/cover.jpg"
+          title="Imagen del álbum"
+        />
+      </div>
+      <div
+        className="title"
+      >
+        Prueba
+        <br />
+        <i>
+          Artista
+        </i>
+      </div>
+    </Link>
+    <Link
+      className="album"
+      key="2"
+      to="/album/2"
+    >
+      <div
+        className="img"
+      >
+        <img
+          alt="Imagen del álbum"
+          src="http://localhost:3001/images/cover.jpg"
+          title="Imagen del álbum"
+        />
+      </div>
+      <div
+        className="title"
+      >
+        Prueba 2
+        <br />
+        <i>
+          Artista
+        </i>
+      </div>
+    </Link>
+  </div>
+</div>
+`;

@@ -1,0 +1,39 @@
+a.album{
+    text-decoration: none;
+    color: inherit;
+}
+
+.album .header{
+    display: table;
+    margin: 50px 0;
+}
+
+.album .header .image, .album .header .data{
+    display: table-cell;
+    vertical-align: top;
+}
+
+.album .header .image img{
+    width: auto;
+    max-height: 300px;
+}
+
+.album .header .data{
+    padding-left: 50px;
+}
+
+@media(max-width: 760px){
+    .header{
+        margin: inherit auto;
+    }
+
+    .header .image, .header .data{
+        display: block;
+    }
+
+    .header .image img{
+        width: 100%;
+        height: auto;
+        max-height: none;
+    }
+}

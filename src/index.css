@@ -6,4 +6,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #333333;
+  color: #fff;
+}
+
+body img{
+  width: 100%;
+  height: auto;
 }

@@ -1,61 +1,79 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
 // Css
 import './App.css';
 
+//Common Components
+import Loader from "./common/Loader";
+import ErrorBoundary from "./ErrorBoundary";
+import Player from "./common/player/Player";
+
+//Components
+import PrivateRoute from "./common/PrivateRoute";
+import Login from "./pages/login/Login";
+import Home from "./pages/home/Home";
+import Album from "./pages/album/Album";
+import History from "./pages/history/History";
+import User from "./pages/user/User";
+
+//Contexts
+import UserContext from './contexts/UserContext';
+
+//Actions
+import { login } from './store/actions/user';
+
+const Menu = lazy(() => import('./common/Menu'));
+
 class App extends Component {
   constructor(props) {
     super(props);
+    
+    this.updateUser = this.updateUser.bind(this);
 
     this.state = {
-      loading: true,
-      albums: []
+      signedIn: false,
+      updateUser: this.updateUser,
     }
   }
 
-  async componentDidMount() {
-    try {
-      const res = await fetch('/albums');
-      const json = await res.json();
-      this.setState((prevState) => ({
-        ...prevState,
-        loading: false,
-        albums: json
-      }));
-    } catch(err) {
-      console.error("Error accediendo al servidor", err);
-    }
+  updateUser(signedIn, username) {
+    this.props.login(username);
+    this.setState(() => ({ signedIn }));
   }
 
   render() {
     return (
-      <div className="App">
-        <h1>Plantilla de la práctica final!</h1>
-        <p>
-          Esta plantilla contiene todo lo necesario para comenzar a
-          desarrollar la práctica final. Antes de comenzar a desarrollar,
-          lee la documentación de la práctica y el fichero README.md de
-          este repositorio.
-        </p>
-        <h2>Servidor de desarrollo</h2>
-        <p>
-          El proyecto está preconfigurado con un servidor de desarrollo basado
-          en json-server:
-        </p>
-          { this.state.loading ?
-            <p>Cargando...</p>
-            : <ul>
-              {this.state.albums.map(album => <li key={album.id}>{album.name}</li>)}
-            </ul>
-          }
-        <h2>¿Dudas?</h2>
-        <p>
-          No olvides pasarte por el foro si tienes alguna duda sobre la práctica final
-          o la plantilla :).
-        </p>
-      </div>
+      <ErrorBoundary>
+        <Suspense fallback={<Loader />}>
+            <Router>
+              <UserContext.Provider value={this.state}>
+                <Menu visible={this.state.signedIn}/>
+                <div className="content">
+                  <Route path="/login" component={Login}/>
+                  <PrivateRoute path="/" exact component={Home} />
+                  <PrivateRoute path="/album/:id" component={Album} />
+                  <PrivateRoute path="/history" component={History} />
+                  <PrivateRoute path="/player/:id" component={Player} />
+                  <PrivateRoute path="/user/:id" component={User} />
+                </div>
+              </UserContext.Provider>
+            </Router>
+            <Player />
+        </Suspense>
+      </ErrorBoundary>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({ ...state });
+
+const mapDispatchToProps = (dispatch) => ({
+  login: (content) => dispatch(login(content))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);

@@ -1,0 +1,17 @@
+#user.content{
+    margin-top: 50px;
+}
+
+#user .header{
+    display: table;
+}
+
+#user .header .image, #user .header .name{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#user .header .image{
+    max-width: 300px;
+    padding-right: 30px;
+}

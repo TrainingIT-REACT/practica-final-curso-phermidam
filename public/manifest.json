@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Reactify",
+  "name": "Mi primera app con ReactJS: Reactify",
   "icons": [
     {
       "src": "favicon.ico",
